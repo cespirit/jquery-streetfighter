@@ -9,3 +9,38 @@ body {
 	min-width: 1200px;	/*Ryuimg 659px, Hadouken travel width cap */
 	height: 500px;
 }
+
+.ryu-container {
+	float: left; /*To have Hadouken float left next to it*/
+}
+
+.ryu-ready,		/*Set alphabetically*/
+.ryu-still,
+.ryu-throwing {
+	width: 659px;
+	height: 494px;
+}
+
+.ryu-ready,
+.ryu-throwing {
+	display: none;
+}
+
+.ryu-ready {
+	background-image: url('../images/ryu-ready-position.gif');
+}
+
+.ryu-still {
+	background-image: url('../images/ryu-standing-still.png');	
+}
+
+.ryu-throwing {
+	background-image: url('../images/ryu-throwing-hadouken.png');
+}
+
+.hadouken, 
+.ryu-ready, 
+.ryu-still, 
+.ryu-throwing {
+	background-repeat: no-repeat; /*Don't repeat images if container is larger then them*/
+}
