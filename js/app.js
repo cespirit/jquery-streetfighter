@@ -1,5 +1,6 @@
 $(document).ready(function(){
-	
+	playIntro();
+
 	$(".ryu-container").mouseenter(function(){
 		$(".ryu-cool").hide();
 		$(".ryu-still").hide();
@@ -56,6 +57,11 @@ $(document).ready(function(){
 
 });
 
+function playIntro(){
+	$('#sf-theme')[0].volume = 0.5;
+	$('#sf-theme')[0].play();
+}
+
 function playHadouken() {
 	$('#hadouken-sound')[0].volume = 0.5;
 	$('#hadouken-sound')[0].load();
@@ -63,6 +69,7 @@ function playHadouken() {
 }
 
 function playCool(){
+	$('#sf-theme')[0].pause();
 	$('#cool-sound')[0].volume = 0.5;	
 	$('#cool-sound')[0].play();
 }
