@@ -58,23 +58,31 @@ $(document).ready(function(){
 });
 
 function playIntro(){
-	$('#sf-theme')[0].volume = 0.5;
-	$('#sf-theme')[0].play();
+	$("#sf-theme")[0].volume = 0.5;
+	$("#sf-theme")[0].play();
+
+	$(".sf-logo").fadeIn(1200);
+	$(".sf-logo").delay(1000).fadeOut(1000);
+	$(".brought-by").fadeIn(1200);
+	$(".brought-by").delay(1000).fadeOut(1000);
+	$(".jquery-logo").fadeIn(1200);
+	$(".jquery-logo").delay(1000).fadeOut(1000);
+
 }
 
 function playHadouken() {
-	$('#hadouken-sound')[0].volume = 0.5;
-	$('#hadouken-sound')[0].load();
-	$('#hadouken-sound')[0].play();
+	$("#hadouken-sound")[0].volume = 0.5;
+	$("#hadouken-sound")[0].load();
+	$("#hadouken-sound")[0].play();
 }
 
 function playCool(){
-	$('#sf-theme')[0].pause();
-	$('#cool-sound')[0].volume = 0.5;	
-	$('#cool-sound')[0].play();
+	$("#sf-theme")[0].pause();
+	$("#cool-sound")[0].volume = 0.5;	
+	$("#cool-sound")[0].play();
 }
 
 function stopCool() {
-	$('#cool-sound')[0].pause();
-	$('#cool-sound')[0].load();
+	$("#cool-sound")[0].pause();
+	$("#cool-sound")[0].load();
 }

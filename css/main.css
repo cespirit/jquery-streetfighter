@@ -17,11 +17,11 @@ body {
 	height: 500px;
 }
 
-/* Ryu Images */
 .hadouken, .jquery-logo, .sf-logo, .ryu-cool, .ryu-ready, .ryu-still, .ryu-throwing {
 	background-repeat: no-repeat; /*Don't repeat images if container is larger then them*/
 }
 
+/* Ryu Images */
 .ryu-container {
 	float: left; /*To have Hadouken float left next to it*/
 }
@@ -31,7 +31,7 @@ body {
 	height: 494px;
 }
 
-.brought-by, .jquery-logo, .sf-logo, 
+.brought-by, .instructions, .jquery-logo, .sf-logo, 
 .ryu-cool, .ryu-ready, .ryu-throwing {
 	display: none;
 }
