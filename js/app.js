@@ -61,13 +61,10 @@ function playIntro(){
 	$("#sf-theme")[0].volume = 0.5;
 	$("#sf-theme")[0].play();
 
-	$(".sf-logo").fadeIn(1200);
-	$(".sf-logo").delay(1000).fadeOut(1000);
-	$(".brought-by").fadeIn(1200);
-	$(".brought-by").delay(1000).fadeOut(1000);
-	$(".jquery-logo").fadeIn(1200);
-	$(".jquery-logo").delay(1000).fadeOut(1000);
-
+	$(".sf-logo").fadeIn(1200).delay(1000).fadeOut(1000);
+	$(".brought-by").delay(3200).fadeIn(1200).delay(1000).fadeOut(1000);
+	$(".jquery-logo").delay(6400).fadeIn(1200).delay(1000).fadeOut(1000);
+	$(".instructions").delay(9600).fadeIn(1200);
 }
 
 function playHadouken() {
@@ -86,3 +83,4 @@ function stopCool() {
 	$("#cool-sound")[0].pause();
 	$("#cool-sound")[0].load();
 }
+

@@ -1,9 +1,3 @@
-/*
-* {
-	outline: 1px solid red;	
-}
-*/
-
 body {
 	background-color: black;
 	font-family: "Comic Sans MS", cursive, sans-serif;
@@ -13,27 +7,28 @@ body {
 	background-color: white;
 	margin-top: 110px;
 	padding-left: 100px;
-	min-width: 1200px;	/*Ryu img 659px, Hadouken travel width cap */
+	min-width: 1200px;	
 	height: 500px;
 }
 
-.hadouken, .jquery-logo, .sf-logo, .ryu-cool, .ryu-ready, .ryu-still, .ryu-throwing {
-	background-repeat: no-repeat; /*Don't repeat images if container is larger then them*/
-}
-
-/* Ryu Images */
-.ryu-container {
-	float: left; /*To have Hadouken float left next to it*/
-}
-
-.ryu-cool, .ryu-ready, .ryu-still, .ryu-throwing {		/*Set alphabetically*/
-	width: 659px;
-	height: 494px;
+.hadouken, .jquery-logo, .sf-logo, 
+.ryu-cool, .ryu-ready, .ryu-still, .ryu-throwing {
+	background-repeat: no-repeat; 
 }
 
 .brought-by, .instructions, .jquery-logo, .sf-logo, 
 .ryu-cool, .ryu-ready, .ryu-throwing {
 	display: none;
+}
+
+/* Ryu Images */
+.ryu-container {
+	float: left; 
+}
+
+.ryu-cool, .ryu-ready, .ryu-still, .ryu-throwing {		
+	width: 659px;
+	height: 494px;
 }
 
 .ryu-cool {
@@ -61,6 +56,7 @@ body {
 	position: relative;
 	top: 167px;
 	left: -212px;
+	z-index: 2000;
 }
 
 /* Text Content */
@@ -69,8 +65,6 @@ body {
 	left: 650px;
 	width: 700px;	
 	height: 500px;
-
-	outline: 1px solid red;
 }
 
 /* Intro */
@@ -100,7 +94,7 @@ body {
 
 /* Instructions */
 .instructions {
-	padding-top: 75xxxxxxxpx;
+	padding-top: 75px;
 }
 
 .instructions p {	
