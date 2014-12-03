@@ -1,31 +1,56 @@
 $(document).ready(function(){
-	$(".ryu-container").on("mouseenter", function(){
+	$(".ryu-container").mouseenter(function(){
+		$(".ryu-cool").hide();
 		$(".ryu-still").hide();
+		$(".ryu-throwing").hide();
 		$(".ryu-ready").show();
 	})
 	.mouseleave(function(){
+		$(".ryu-cool").hide();
 		$(".ryu-ready").hide();
+		$(".ryu-throwing").hide();
 		$(".ryu-still").show();		
 	})
 	.mousedown(function(){
 		playHadouken();
 		$(".ryu-ready").hide();
-		$(".ryu-still").hide();	/*	For the case when mouseup but no mouseenter again to hadouken since .finish() didn't work for me completely */
+		$(".ryu-still").hide();	
+		$(".ryu-cool").hide();
 		$(".ryu-throwing").show();	
 		$(".hadouken").finish().show()
 		.animate(
 		    {"left": "300px"},
 		    500,
 		    function() {
+		    	$(this).stop();		
 		    	$(this).hide();
 		    	$(this).css("left", "-212px");
 		    }
 		);		
 	})
 	.mouseup(function(){
+		$(".ryu-cool").hide();
+		$(".ryu-ready").hide();
 		$(".ryu-throwing").hide();
 		$(".ryu-still").show();
 	});
+	
+	$(document).keydown(function(event){
+		if(event.keyCode === 88) {		
+			$(".ryu-ready").hide();
+			$(".ryu-still").hide();
+			$(".ryu-throwing").hide();
+			$(".ryu-cool").show();
+		}
+	}).keyup(function(event){
+		if(event.keyCode === 88) {
+			$(".ryu-cool").hide();
+			$(".ryu-ready").hide();
+			$(".ryu-throwing").hide();
+			$(".ryu-still").show();		
+		}
+	});
+
 });
 
 function playHadouken() {
