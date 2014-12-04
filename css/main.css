@@ -12,12 +12,11 @@ body {
 }
 
 .hadouken, .jquery-logo, .sf-logo, 
-.ryu-cool, .ryu-ready, .ryu-still, .ryu-throwing {
+.ryu-cool-pose, .ryu-ready, .ryu-still, .ryu-throwing {
 	background-repeat: no-repeat; 
 }
 
-.brought-by, .instructions, .jquery-logo, .sf-logo, 
-.ryu-cool, .ryu-ready, .ryu-throwing {
+.brought-by, .instructions, .jquery-logo, .sf-logo, .hadouken {
 	display: none;
 }
 
@@ -26,13 +25,13 @@ body {
 	float: left; 
 }
 
-.ryu-cool, .ryu-ready, .ryu-still, .ryu-throwing {		
+.ryu-cool-pose, .ryu-ready, .ryu-still, .ryu-throwing {		
 	width: 659px;
 	height: 494px;
 }
 
-.ryu-cool {
-	background-image: url('../images/ryu-cool.gif');
+.ryu-cool-pose {
+	background-image: url('../images/ryu-cool-pose.gif');
 }
 
 .ryu-ready {
@@ -51,7 +50,6 @@ body {
 	background-image: url('../images/hadouken.gif');
 	width: 156px;
 	height: 90px;
-	display: none;
 	float: left;	
 	position: relative;
 	top: 167px;
