@@ -1,4 +1,6 @@
+
 $(document).ready(function() {	
+
 	var introPlaying = false;
 	var player = $("#ryu");
 	playIntro();
@@ -45,10 +47,19 @@ $(document).ready(function() {
 function playIntro(){
 	introPlaying = true;
 	playMusic($("#sf-theme")[0], 0.5, false, false);
+	/*
 	$(".sf-logo").fadeIn(1200).delay(1000).fadeOut(1000);
 	$(".brought-by").delay(3300).fadeIn(1200).delay(1000).fadeOut(1000);
 	$(".jquery-logo").delay(6600).fadeIn(1200).delay(1000).fadeOut(1000);
 	$(".instructions").delay(9900).fadeIn(1200);
+	*/
+
+	$(".sf-logo").fadeIn(1200).delay(1000).fadeOut(1000, function() {
+		$(".brought-by").fadeIn(1200).delay(1000).fadeOut(1000, function() {
+			$(".jquery-logo").fadeIn(1200).delay(1000).fadeOut(1000, function() { 
+				$(".instructions").fadeIn(1200) }) 
+		}) 
+	});
 }
 
 function changeAction(player, action) {
