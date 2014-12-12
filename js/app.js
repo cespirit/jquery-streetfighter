@@ -12,7 +12,7 @@ $(document).ready(function() {
 		changeAction(player, "still");
 	})
 	.mousedown(function(){
-		playMusic($("#hadouken-sound")[0], 0.5, false, true)
+		playMusic($("#hadouken-sound")[0], 0.5, false, true);
 		changeAction(player, "throwing");
 		$(".hadouken").finish().show()
 		.animate(
@@ -31,13 +31,13 @@ $(document).ready(function() {
 
 	$(document).keydown(function(event){
 		if(event.keyCode === 88) {		
-			playMusic($("#cool-sound")[0], 0.5, true, false)
+			playMusic($("#cool-sound")[0], 0.5, true, false);
 			changeAction(player, "cool-pose");
 		}
 	})
 	.keyup(function(event){
 		if(event.keyCode === 88) {
-			stopMusic($("#cool-sound")[0]);
+			stopMusic($("#cool-sound")[0], true);
 			changeAction(player, "still");	
 		}
 	});
@@ -63,7 +63,7 @@ function changeAction(player, action) {
 
 function playMusic(audio, vol, pauseIntro, reload) {
 	if(introPlaying && pauseIntro) { 
-		$("#sf-theme")[0].pause(); 
+		stopMusic($("#sf-theme")[0], false);
 		introPlaying = false;
 	}
 	if(reload) { 
@@ -73,7 +73,10 @@ function playMusic(audio, vol, pauseIntro, reload) {
 	audio.play();
 }
 
-function stopMusic(audio) {
+function stopMusic(audio, reload) {
 	audio.pause();
-	audio.load(); 
+
+	if(reload) {
+		audio.load(); 
+	}
 }
