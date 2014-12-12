@@ -12,7 +12,13 @@ $(document).ready(function() {
 		changeAction(player, "still");
 	})
 	.mousedown(function(){
-		playMusic($("#hadouken-sound")[0], 0.5, false, true);
+		var hadoukenSound = {
+			music: $("#hadouken-sound")[0],
+			volume: 0.5,
+			pauseIntro: false,
+			reload: true
+		};
+		playMusic(hadoukenSound);
 		changeAction(player, "throwing");
 		$(".hadouken").finish().show()
 		.animate(
@@ -30,14 +36,24 @@ $(document).ready(function() {
 	});
 
 	$(document).keydown(function(event){
-		if(event.keyCode === 88) {		
-			playMusic($("#cool-sound")[0], 0.5, true, false);
+		if(event.keyCode === 88) {	
+			var CoolMusic = {
+				music: $("#cool-sound")[0], 
+				volume: 0.5,
+				pauseIntro: true,
+				reload: false
+			};	
+			playMusic(CoolMusic);
 			changeAction(player, "cool-pose");
 		}
 	})
 	.keyup(function(event){
 		if(event.keyCode === 88) {
-			stopMusic($("#cool-sound")[0], true);
+			var coolMusic = {
+				music: $("#cool-sound")[0],
+			    reload: true
+			};
+			stopMusic(coolMusic);
 			changeAction(player, "still");	
 		}
 	});
@@ -46,7 +62,13 @@ $(document).ready(function() {
 
 function playIntro(){
 	introPlaying = true;
-	playMusic($("#sf-theme")[0], 0.5, false, false);
+	var sfThemeMusic = {
+		music: $("#sf-theme")[0], 
+		volume: 0.5,
+		pauseIntro: false,
+		reload: false
+	};
+	playMusic(sfThemeMusic);
 	$(".sf-logo").fadeIn(1200).delay(1000).fadeOut(1000, function() {
 		$(".brought-by").fadeIn(1200).delay(1000).fadeOut(1000, function() {
 			$(".jquery-logo").fadeIn(1200).delay(1000).fadeOut(1000, function() { 
@@ -61,22 +83,43 @@ function changeAction(player, action) {
 	player.addClass(player[0].id + '-' + action);
 }
 
-function playMusic(audio, vol, pauseIntro, reload) {
-	if(introPlaying && pauseIntro) { 
-		stopMusic($("#sf-theme")[0], false);
+function playMusic(audio) {
+	var defaultOptions = {
+		music: $("#cool-sound")[0], 
+		volume: 0.3,
+		pauseIntro: false,
+		reload: false
+	};
+
+	// Set unspecified values to default values
+	audio = $.extend({}, defaultOptions, audio);
+
+	if(introPlaying && audio["pauseIntro"]) { 
+		var sfThemeMusic = {
+		    music: $("#sf-theme")[0],
+		    reload: false
+		}
+		stopMusic(sfThemeMusic);
 		introPlaying = false;
 	}
-	if(reload) { 
-		audio.load(); 
+	if(audio["reload"]) { 
+		audio["music"].load(); 
 	}
-	audio.volume = vol;
-	audio.play();
+	audio["music"].volume = audio["volume"];
+	audio["music"].play();
 }
 
-function stopMusic(audio, reload) {
-	audio.pause();
+function stopMusic(audio) {
+	var defaultOptions = {
+		music: $("#cool-sound")[0],
+		reload: false 
+	}
 
-	if(reload) {
-		audio.load(); 
+	// Set unspecified values to default values
+	audio = $.extend({}, defaultOptions, audio);
+	
+	audio["music"].pause();
+	if(audio["reload"]) {
+		audio["music"].load();
 	}
 }
